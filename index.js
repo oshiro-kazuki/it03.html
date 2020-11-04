@@ -3,7 +3,7 @@
 {
   const topImg = document.getElementById('topImg');
   const topImage = document.createElement('img');
-  topImage.src = "images/top.JPG";
+  topImage.src = "images/top.jpg";
   topImg.appendChild(topImage);
   
   
@@ -98,7 +98,7 @@
   const aboutClose = document.getElementById('aboutClose');
   
   const aboutImg = document.querySelector('#about > img');
-  aboutImg.src = "images/yagi.JPG";
+  aboutImg.src = "images/yagi.jpg";
 
   aboutBtn.addEventListener('click', () => {
     aboutBtn.classList.add('hidden');
