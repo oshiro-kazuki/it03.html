@@ -1,6 +1,12 @@
 'use strict';
 
 {
+  const topImg = document.getElementById('topImg');
+  const topImage = document.createElement('img');
+  topImage.src = 'images/top.jpg';
+  topImg.appendChild(topImage);
+  
+  
   const drinkImg = ["images/drink01.JPG", "images/drink02.JPG", "images/drink03.JPG"];
         
   const menus = [
@@ -90,6 +96,9 @@
   const aboutBtn = document.getElementById('aboutBtn');
   const about = document.getElementById('about');
   const aboutClose = document.getElementById('aboutClose');
+  
+  const aboutImg = document.querySelector('#about > img');
+  aboutImg.src = 'images/yagi.JPG';
 
   aboutBtn.addEventListener('click', () => {
     aboutBtn.classList.add('hidden');
