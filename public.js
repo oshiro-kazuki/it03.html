@@ -50,7 +50,7 @@
   const headerLogo = document.getElementById('headerLogo');
   headerLogo.href = contents[0].html;
   const headerLogoImg = document.createElement('img');
-  headerLogoImg.src = 'images/yagi.jpg';
+  headerLogoImg.src = "images/yagi.JPG";
   headerLogoImg.classList.add('headerLogo');
   headerLogo.appendChild(headerLogoImg);
 
