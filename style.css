@@ -199,11 +199,6 @@ header {
   transform-origin: center;
 }
 
-
-
-
-
-
 main {
   margin: 0;
   padding: 0;
@@ -226,6 +221,11 @@ main {
   width: 70px;
   text-align: center;
   border: 2px dotted rgb(83, 71, 71);
+}
+
+#news div {
+  height: 100px;
+  overflow-y: scroll;
 }
 
 #news p {
@@ -922,4 +922,3 @@ footer div{
     height: 500px;
   }
 }
-
