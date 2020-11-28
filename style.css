@@ -104,7 +104,8 @@ header {
 
 
 
-#mask {
+#mask,
+#maskZoom  {
   background: #ccc;
   opacity: .4;
   position: fixed;
@@ -116,7 +117,8 @@ header {
   visibility: visible;
 }
 
-#mask.hidden {
+#mask.hidden,
+#maskZoom.hidden {
   visibility: hidden;
 }
 
@@ -466,6 +468,9 @@ footer div{
   color: tomato;
 }
 
+
+
+
 /* access.html */
 .accessMap iframe {
   display: block;
@@ -488,6 +493,7 @@ footer div{
   text-align: left;
   color: rgb(22, 11, 6);
 }
+
 
 /* takeout.html */
 .takeout-wrapper {
@@ -552,6 +558,57 @@ footer div{
   margin-bottom: 5px;
 }
 
+#modalZoom {
+  width: 330px;
+  height: 360px;
+  display: block;
+  padding: 0 15px;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#modalZoom.hidden {
+  display: none;
+}
+
+#pZoom {
+  font-size: 18px;
+}
+
+#imageZoom {
+  width: 300px;
+  height: 300px;
+  vertical-align: bottom;
+}
+
+#closeZoom {
+  text-align: center;
+  background: rgb(202, 188, 188);
+  width: 100px;
+  margin: 3px auto;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(170, 167, 154);
+  cursor: pointer;
+  opacity: .9;
+  transition: all .1s;
+}
+
+#closeZoom:hover {
+  opacity: 1;
+  transform: scale(1.03);
+  transform-origin: center;
+}
+
+#closeZoom:active {
+  box-shadow: 0 0 0;
+  margin-top: 3px;
+  margin-bottom: -3px;
+}
+
+
 #container {
   margin: 0 auto;
 }
@@ -572,8 +629,7 @@ footer div{
   width: 180px;
 }
 
-
-.menuP {
+.menuName {
   font-size: 7px;
 }
 
@@ -582,6 +638,18 @@ footer div{
   width: 170px;
   vertical-align: bottom;
   text-align: center;
+  opacity: .9;
+  cursor: pointer;
+}
+
+.menuPrice,
+.subPrice {
+  font-size: 14px;
+}
+
+
+.menuImg:hover {
+  opacity: 1;
 }
 
 .menuCount {
@@ -589,6 +657,21 @@ footer div{
   height: 20px;
   text-align: center;
   color: #000;
+}
+
+#totalview {
+  display: none;
+  height: 30px;
+  width: 100px;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: rgb(133, 231, 108);
+  line-height: 30px;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  font-size: 14px;
+  z-index: 3;
 }
 
 #conf {
