@@ -25,8 +25,34 @@
             <h1>たくさんのご要望をいただいたのでテイクアウト始めました。</h1>
           </div>
 
-          <div id="mask" class="hidden"></div>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>YAGIcafe / takeout</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a  id="headerLogo"></a>
+        <nav id="pcInfo"></nav>
+        <nav id="mfInfo">･･･</nav>
+        <nav id="mfInfoClose" class="hidden">✕</nav>
+      </header>
+  
+      <div id="mask" class="hidden"></div>
+  
+      <div id="infoModal" class="hidden"></div>
+  
+      <main>
+        <div class="takeout-wrapper">
+          <div class="takeout-text">
+            <h1>たくさんのご要望をいただいたのでテイクアウト始めました。</h1>
+          </div>
 
+          <div id="mask" class="hidden"></div>
           <div id="modalTo" class="hidden">
             <p>ご注文内容</p>
             <div id="modalContent"></div>
@@ -46,17 +72,17 @@
           </div>
 
           <div id="maskZoom" class="hidden"></div>
-
           <div id="modalZoom" class="hidden">
             <p id="pZoom"></p>
             <img id="imageZoom" >
             <p id="closeZoom">close</p>
           </div>
 
+          <div id="totalview">合計¥<span></span></div>
+
           <div id="container">
             <form>
               <div id="items"></div>
-
               <div id="conf">確認</div>
             </form>
           </div>
