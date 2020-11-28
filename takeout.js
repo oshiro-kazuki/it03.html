@@ -48,7 +48,7 @@
         break;
       case 'menuPrice':
         price.textContent = content;
-        price.classList.add('menuprice');
+        price.classList.add('menuPrice');
         div.appendChild(price);
         break;
     }
@@ -128,7 +128,6 @@
   const imageZoom = document.getElementById('imageZoom');
   
   function contentsZoom(name, img, image) {
-    console.log(name);
     img.addEventListener('click', () => {
       modalZoom.classList.remove('hidden');
       maskZoom.classList.remove('hidden');
@@ -137,8 +136,9 @@
     });
   }
 
-  
-  menus.forEach(menu => {
+  const totalview = document.querySelector('#totalview > span');
+
+  menus.map(menu => {
     const div = item();
     contents(menu.name, 'menuName', div);
     contents(menu.image, 'menuImg', div);
@@ -156,29 +156,28 @@
       return sub;
     }
     
-
     const subText = document.createElement('p');
     subText.textContent = `￥${sub}円`;
-    subText.classList.add('menuP');
+    subText.classList.add('subPrice');
     div.appendChild(subText);
-
-    select.addEventListener('change', e => {
+    
+    select.onchange = () => {
       getCount();
-      getSub();
+      sub = getSub();
       subText.textContent = `￥${sub}円`;
-    });
-
-    conf.addEventListener('click', e => {
+    }
+  
+    conf.addEventListener('click', ()=> {
       count = getCount();
-      getSub();
+      sub = getSub();
       modalLayout(count, menu.name);
       total += sub;
-      modalTotal.textContent = `合計金額￥${total} 円`;
+      modalTotal.textContent = `合計金額￥${total}円`;
+      
       select.value = 0;
       
       mask.classList.remove('hidden');
       modalTo.classList.remove('hidden');
-    })
-
+    });
   });
 }
