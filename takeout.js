@@ -23,29 +23,40 @@
 
   const items = document.getElementById('items');
 
-  let d;
   function item() {
-    d = document.createElement('div');
-    d.classList.add('item');
-    items.appendChild(d);
+    const div = document.createElement('div');
+    div.classList.add('item');
+    items.appendChild(div);
+    return div;
   }
 
-  function contents(content, crs) {
-    const p = document.createElement('p');
+  function contents(content, crs, div) {
+    const name = document.createElement('p');
     const img = document.createElement('img');
-
-    if (crs == 'menuImg') {
-      img.src = content;
-      img.classList.add('menuImg');
-      d.appendChild(img);
-    } else {
-      p.textContent = content;
-      p.classList.add('menuP');
-      d.appendChild(p);
+    const price = document.createElement('p');
+    
+    switch(crs) {
+      case 'menuName':
+        name.textContent = content;
+        name.classList.add('menuName');
+        div.appendChild(name);
+        break;
+      case 'menuImg':
+        img.src = content;
+        img.classList.add('menuImg');
+        div.appendChild(img);
+        break;
+      case 'menuPrice':
+        price.textContent = content;
+        price.classList.add('menuprice');
+        div.appendChild(price);
+        break;
     }
+      
+    contentsZoom(name.textContent, img, img.src);
   }
 
-  function addSelect(select) {
+  function addSelect(select, div) {
     select.classList.add('menuCount');
     for(let i = 0; i < 10; i++) {
       let option = document.createElement('option');
@@ -53,7 +64,7 @@
       option.setAttribute('value', `${i}`);
       select.appendChild(option);
     }
-    d.appendChild(select);
+    div.appendChild(select);
   }
 
   const conf = document.getElementById('conf');
@@ -98,14 +109,42 @@
   modalReset.addEventListener('click', () => {
     modalReload();
   });
+
+
+  //ズーム
+  const maskZoom = document.getElementById('maskZoom');
+  maskZoom.addEventListener('click', () => {
+    maskZoom.classList.add('hidden');
+    modalZoom.classList.add('hidden');
+  });
+
+  const closeZoom = document.getElementById('closeZoom');
+  closeZoom.addEventListener('click', () => {
+    maskZoom.click();
+  });
+
+  const modalZoom = document.getElementById('modalZoom');
+  const pZoom = document.getElementById('pZoom');
+  const imageZoom = document.getElementById('imageZoom');
+  
+  function contentsZoom(name, img, image) {
+    console.log(name);
+    img.addEventListener('click', () => {
+      modalZoom.classList.remove('hidden');
+      maskZoom.classList.remove('hidden');
+      pZoom.textContent = name;
+      imageZoom.src = image;
+    });
+  }
+
   
   menus.forEach(menu => {
-    item();
-    contents(menu.name, 'menuP');
-    contents(menu.image, 'menuImg');
-    contents(`¥${menu.price}`, 'menuP');
+    const div = item();
+    contents(menu.name, 'menuName', div);
+    contents(menu.image, 'menuImg', div);
+    contents(`¥${menu.price}`, 'menuPrice', div);
     const select = document.createElement('select');
-    addSelect(select);
+    addSelect(select, div);
     
     function getCount() {
       count = parseInt(select.value);
@@ -121,7 +160,7 @@
     const subText = document.createElement('p');
     subText.textContent = `￥${sub}円`;
     subText.classList.add('menuP');
-    d.appendChild(subText);
+    div.appendChild(subText);
 
     select.addEventListener('change', e => {
       getCount();
